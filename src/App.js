@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { RecoilRoot } from 'recoil'
 import FoodAtomContainer from './containers/FoodAtomContainer'
 import FoodSelectorContainer from './containers/FoodSelectorContainer';

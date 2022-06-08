@@ -1,17 +1,22 @@
 import React from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilValueLoadable } from 'recoil';
+import PhotoCard from '../components/PhotoCard';
 import { getFoodSelector } from '../recoil/foodState';
 
 const FoodSelectorContainer = () => {
-  const [food, setFood] = useRecoilState(getFoodSelector);
-  // const food = useRecoilValue(foodState);
-  // const setFood = useSetRecoilState(foodState)
-  // setter
+  const foodLoadable = useRecoilValueLoadable(getFoodSelector);
 
   return (
-    <div>
-      { food.map((text) => <h1 key={text}>{text}</h1>) }
-      <button onClick={() => setFood([...food, '정참치'])}>update</button>
+    <div style={{ padding: 48 }}>
+      {
+        foodLoadable.state === 'hasValue' && <div>{foodLoadable.contents.map((data) => <PhotoCard key={data.title} data={data} />)}</div>
+      }
+      {
+        foodLoadable.state === 'loading' && <h1>로딩중! 로딩중!</h1>
+      }
+      {
+        foodLoadable.state === 'hasError' && <h1>에러발생! 에러발생!</h1>
+      }
     </div>
   );
 };

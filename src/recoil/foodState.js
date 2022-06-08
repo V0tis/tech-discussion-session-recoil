@@ -10,9 +10,9 @@ export const getFoodSelector = selector({
   key: "cookie/get",
   get: async ({ get }) => {
     try{
-      const { data } = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
-      console.log('data', data);
-      return data.data;
+      // const { data } = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
+      const { data } = await axios.get('https://jsonplaceholder.typicode.com/photos');
+      return data;
     } catch (err) {
     	throw err;
     }
