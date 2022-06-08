@@ -1,4 +1,4 @@
-import { atom, selector } from "recoil";
+import { atom, selector, selectorFamily } from "recoil";
 import axios from "axios";
 
 export const foodState = atom({
@@ -8,13 +8,12 @@ export const foodState = atom({
 
 export const CardState = atom({
   key: "cardState",
-  default: undefined,
+  default: [],
 });
 
 export const getCardSelector = selector({
   key: "food/get",
   get: async ({ get }) => {
-    // api call을 통해 받아온 data return
     try {
       const { data } = await axios.get(
         "https://jsonplaceholder.typicode.com/photos"
@@ -28,3 +27,17 @@ export const getCardSelector = selector({
     set(CardState, newValue);
   },
 });
+
+export const getCommentSelector = selectorFamily({
+  key: "comment/get",
+  get: (postId) => async () => {
+    if (!postId) return "";
+
+    const { data } = await axios.get(
+      `https://jsonplaceholder.typicode.com/comments?postId=${postId}`
+    );
+    
+    return data;
+  },
+});
+

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { RecoilRoot } from "recoil";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import FoodLoadable from "./containers/FoodLoadable";
-import FoodAtom from "./containers/FoodAtom";
-import FoodSelector from "./containers/FoodSelector";
-import FoodAsyncAtom from "./containers/FoodAsyncAtom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+const FoodAtom = lazy(() => import("./containers/FoodAtom"));
+const FoodSelector = lazy(() => import("./containers/FoodSelector"));
+const FoodAsyncAtom = lazy(() => import("./containers/FoodAsyncAtom"));
+const FoodLoadable = lazy(() => import("./containers/FoodLoadable"));
+const FoodSelectorFamily = lazy(() => import("./containers/FoodSelectorFamily"));
 
 function App() {
   return (
@@ -13,7 +15,12 @@ function App() {
         <Routes>
           <Route path="/atom" element={<FoodAtom />} />
           <Route path="/async/atom" element={<FoodAsyncAtom />} />
-          <Route path="/selector" element={<FoodSelector />} />
+          <Route path="/selector" element={
+          <Suspense fallback={<h1>로딩중! 로딩중!</h1>}>
+            <FoodSelector />
+          </Suspense>
+          } />
+          <Route path="/selector/family/:postId" element={<FoodSelectorFamily />} />
           <Route path="/loadable" element={<FoodLoadable />} />
         </Routes>
       </BrowserRouter>
