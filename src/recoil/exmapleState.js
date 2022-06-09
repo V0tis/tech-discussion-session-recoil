@@ -1,4 +1,4 @@
-import { atom, selector, selectorFamily } from "recoil";
+import { atom, atomFamily, selector, selectorFamily } from "recoil";
 import axios from "axios";
 
 export const foodState = atom({
@@ -8,6 +8,11 @@ export const foodState = atom({
 
 export const CardState = atom({
   key: "cardState",
+  default: [],
+});
+
+export const CommentState = atom({
+  key: "commentState",
   default: [],
 });
 
@@ -29,7 +34,7 @@ export const getCardSelector = selector({
 });
 
 export const getCommentSelector = selectorFamily({
-  key: "comment/get",
+  key: "commentSelectorFamily",
   get: (postId) => async () => {
     if (!postId) return "";
 
@@ -41,3 +46,12 @@ export const getCommentSelector = selectorFamily({
   },
 });
 
+export const getSeoectedCommentAtom = atomFamily({
+  key: "getSeoectedCommentAtom",
+  default: (data) => {
+    return {
+      ...data,
+      status: 'alive'
+    }
+  },
+})

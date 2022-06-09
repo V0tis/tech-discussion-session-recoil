@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { getCommentSelector } from "../recoil/foodState";
+import { getCommentSelector } from "../recoil/exmapleState";
 
 const FoodSelectorFamily = () => {
   const { postId } = useParams();

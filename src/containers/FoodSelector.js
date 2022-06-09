@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { useParams } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { getCardSelector } from "../recoil/foodState";
 
 const FoodSelector = () => {
-  const [card] = useRecoilState(getCardSelector);
+  const { postId } = useParams();
+  const [card] = useRecoilState(postId);
 
   return (
     <div>
-      <Link to="/atom">Atom</Link> | <Link to="/selector">Selector</Link>
       {card && JSON.stringify(card)}
     </div>
   );

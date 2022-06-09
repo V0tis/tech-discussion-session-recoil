@@ -1,7 +1,7 @@
 import React from "react";
 import { useRecoilValueLoadable } from "recoil";
 import PhotoCard from "../components/PhotoCard";
-import { getCardSelector } from "../recoil/foodState";
+import { getCardSelector } from "../recoil/exmapleState";
 
 const FoodLoadable = () => {
   const foodLoadable = useRecoilValueLoadable(getCardSelector);

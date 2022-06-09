@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilState } from "recoil";
-import { CardState } from "../recoil/foodState";
+import { CardState } from "../recoil/exmapleState";
 import axios from "axios";
 
 const FoodAsyncAtom = () => {
