@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
-import { getSeoectedCommentAtom } from '../recoil/exmapleState';
+import { getSeoectedCommentAtom } from '../recoil/exampleState';
 
 const FoodAtomFamilyItem = ({ data }) => {
   const { name , email, body, status } = useRecoilValue(getSeoectedCommentAtom(data));

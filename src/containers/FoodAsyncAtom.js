@@ -1,13 +1,11 @@
 import React from "react";
 import { useRecoilState } from "recoil";
-import { CardState } from "../recoil/exmapleState";
+import { CardState } from "../recoil/exampleState";
 import axios from "axios";
 
 const FoodAsyncAtom = () => {
   const [card, setCard] = useRecoilState(CardState);
   const [isLoading, setIsLoading] = React.useState(true);
-
-  alert(isLoading);
 
   React.useEffect(() => {
     (async () => {
@@ -16,8 +14,8 @@ const FoodAsyncAtom = () => {
       );
 
       setCard(data);
+      setIsLoading(false);
     })();
-    setIsLoading(false);
   }, []);
 
   return (

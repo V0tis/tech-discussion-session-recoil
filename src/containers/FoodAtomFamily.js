@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { useParams } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { getCommentSelector } from "../recoil/exmapleState";
+import { getCommentSelector } from "../recoil/exampleState";
 import CommentAtomFamilyItem from './FoodAtomFamilyItem.js'
 
 const FoodAtomFamily = () => {

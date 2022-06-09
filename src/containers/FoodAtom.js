@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilState } from "recoil";
-import { foodState } from "../recoil/exmapleState";
+import { foodState } from "../recoil/exampleState";
 import { Link } from "react-router-dom";
 
 const FoodAtom = () => {

@@ -1,4 +1,4 @@
-import { atom, atomFamily, selector, selectorFamily } from "recoil";
+import { atom, atomFamily, selector, selectorFamily, waitForAll } from "recoil";
 import axios from "axios";
 
 export const foodState = atom({

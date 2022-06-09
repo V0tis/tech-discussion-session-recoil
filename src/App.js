@@ -7,7 +7,6 @@ const FoodSelector = lazy(() => import("./containers/FoodSelector"));
 const FoodAsyncAtom = lazy(() => import("./containers/FoodAsyncAtom"));
 const FoodLoadable = lazy(() => import("./containers/FoodLoadable"));
 const FoodAtomFamily = lazy(() => import("./containers/FoodAtomFamily"));
-const FoodAtomFamilyItem = lazy(() => import("./containers/FoodAtomFamilyItem"));
 const FoodSelectorFamily = lazy(() => import("./containers/FoodSelectorFamily"));
 
 function App() {
